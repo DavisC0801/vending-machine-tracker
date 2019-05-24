@@ -14,20 +14,20 @@ RSpec.describe "As a user" do
     it "I see the name of all of the snacks associated with that vending machine along with their price" do
       visit machine_path(@machine_1)
 
-      # within("#snack-#{@burger.id}-info") do
+      within("#snack-#{@burger.id}-info") do
       expect(page).to have_content("White Castle Burger")
       expect(page).to have_content("$3.50")
-      # end
+      end
 
-      # within("#snack-#{@pop_rocks.id}-info") do
+      within("#snack-#{@pop_rocks.id}-info") do
       expect(page).to have_content("Pop Rocks")
-      expect(page).to have_content("$2.50")
-      # end
-
-      # within("#snack-#{@cheetos.id}-info") do
-      expect(page).to have_content("Flaming Hot Cheetos")
       expect(page).to have_content("$1.50")
-      # end
+      end
+
+      within("#snack-#{@cheetos.id}-info") do
+      expect(page).to have_content("Flaming Hot Cheetos")
+      expect(page).to have_content("$2.50")
+      end
     end
   end
 end
