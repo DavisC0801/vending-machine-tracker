@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20190524151437) do
 
   create_table "snack_machines", force: :cascade do |t|
     t.bigint "snack_id"
-    t.bigint "machines_id"
-    t.index ["machines_id"], name: "index_snack_machines_on_machines_id"
+    t.bigint "machine_id"
+    t.index ["machine_id"], name: "index_snack_machines_on_machine_id"
     t.index ["snack_id"], name: "index_snack_machines_on_snack_id"
   end
 
@@ -38,6 +38,6 @@ ActiveRecord::Schema.define(version: 20190524151437) do
   end
 
   add_foreign_key "machines", "owners"
-  add_foreign_key "snack_machines", "machines", column: "machines_id"
+  add_foreign_key "snack_machines", "machines"
   add_foreign_key "snack_machines", "snacks"
 end
